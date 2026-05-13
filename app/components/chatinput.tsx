@@ -2,8 +2,8 @@ import React from 'react';
 
 const ChatInput = () => {
     return (
-        <div className="w-full flex justify-center pb-6 px-4 bg-gradient-to-t from-[#131314] via-[#131314] to-transparent absolute bottom-0">
-            <div className="w-full max-w-3xl">
+        <div className="w-full flex justify-center pb-6 px-4 bg-gradient-to-t from-[#000000] via-[#131314] to-transparent absolute bottom-0">
+            <div className="w-full max-w-3xl mb-12 scale-90">
                 <div className="bg-[#1e1f20] rounded-full border border-neutral-700/50 p-2 flex flex-col shadow-[0_4px_12px_rgba(0,0,0,0.1)] focus-within:bg-[#282a2c] focus-within:shadow-[0_4px_12px_rgba(0,0,0,0.2)] transition-all duration-300 group">
                     <div className="flex items-end gap-2 px-2">
                         <button className="p-3 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-full transition-colors flex shrink-0 mb-0.5">

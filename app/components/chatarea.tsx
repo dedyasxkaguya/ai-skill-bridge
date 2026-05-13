@@ -54,7 +54,7 @@ const ChatArea = () => {
                     sqlQuery={`SELECT \n  c.customer_name, \n  SUM(o.total_amount) as total_purchases\nFROM customers c\nJOIN orders o ON c.customer_id = o.customer_id\nWHERE YEAR(o.order_date) = YEAR(CURRENT_DATE)\nGROUP BY c.customer_id, c.customer_name\nORDER BY total_purchases DESC\nLIMIT 5;`}
                 />
 
-                {/* 
+                
                 <div className="flex flex-col items-center justify-center mt-32 text-center opacity-0 hidden">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 mb-6 flex items-center justify-center shadow-lg">
                         <i className="bi bi-robot text-white text-3xl"></i>
@@ -62,7 +62,7 @@ const ChatArea = () => {
                     <h2 className="text-3xl font-medium font-judul text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-2">Halo, Adzan</h2>
                     <p className="text-xl text-neutral-400 font-deskripsi">Ada yang bisa saya bantu ?</p>
                 </div> 
-                */}
+               
 
             </div>
         </div>
