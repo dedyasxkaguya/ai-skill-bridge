@@ -1,6 +1,14 @@
 import React from 'react';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
-const MessageBubble = ({ role, content, sqlQuery }: { role: 'user' | 'ai', content: React.ReactNode, sqlQuery?: string }) => {
+export interface IMessage {
+    role: 'user' | 'ai'
+    content: React.ReactNode
+    sqlQuery: string | boolean
+    response: string | boolean
+}
+
+const MessageBubble = ({ role, content, sqlQuery, response }: IMessage) => {
     if (role === 'user') {
         return (
             <div className="flex justify-end w-full mb-6 px-4">
@@ -14,11 +22,11 @@ const MessageBubble = ({ role, content, sqlQuery }: { role: 'user' | 'ai', conte
     return (
         <div className="flex justify-start w-full mb-8 px-4">
             <div className="flex gap-4 w-full max-w-3xl">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center shrink-0 mt-1 shadow-sm">
+                <div className="w-8 h-8 rounded-full bg-linear-to-br from-blue-400 to-purple-500 flex items-center justify-center shrink-0 mt-1 shadow-sm">
                     <i className="bi bi-robot text-white text-sm"></i>
                 </div>
-                
-                <div className="flex flex-col gap-3 w-full">
+
+                <div className="flex flex-col gap-3 w-full justify-center">
                     <div className="text-neutral-200 text-[15px] leading-relaxed font-deskripsi">
                         {content}
                     </div>
@@ -36,21 +44,27 @@ const MessageBubble = ({ role, content, sqlQuery }: { role: 'user' | 'ai', conte
                             </div>
                         </div>
                     )}
-                    
-                    <div className="flex gap-2 mt-2">
-                        <button className="text-neutral-500 hover:text-neutral-300 transition-colors p-1 rounded-md hover:bg-neutral-800">
-                            <i className="bi bi-hand-thumbs-up"></i>
-                        </button>
-                        <button className="text-neutral-500 hover:text-neutral-300 transition-colors p-1 rounded-md hover:bg-neutral-800">
-                            <i className="bi bi-hand-thumbs-down"></i>
-                        </button>
-                        <button className="text-neutral-500 hover:text-neutral-300 transition-colors p-1 rounded-md hover:bg-neutral-800">
-                            <i className="bi bi-arrow-clockwise"></i>
-                        </button>
-                        <button className="text-neutral-500 hover:text-neutral-300 transition-colors p-1 rounded-md hover:bg-neutral-800">
-                            <i className="bi bi-three-dots-vertical"></i>
-                        </button>
-                    </div>
+                    {response && (
+                        <section>
+                            <div className="text-neutral-200 text-[15px] leading-relaxed font-deskripsi">
+                                {response.toString()}
+                            </div>
+                            <div className="flex gap-2 mt-2">
+                                <button className="text-neutral-500 hover:text-neutral-300 transition-colors p-1 rounded-md hover:bg-neutral-800">
+                                    <i className="bi bi-hand-thumbs-up"></i>
+                                </button>
+                                <button className="text-neutral-500 hover:text-neutral-300 transition-colors p-1 rounded-md hover:bg-neutral-800">
+                                    <i className="bi bi-hand-thumbs-down"></i>
+                                </button>
+                                <button className="text-neutral-500 hover:text-neutral-300 transition-colors p-1 rounded-md hover:bg-neutral-800">
+                                    <i className="bi bi-arrow-clockwise"></i>
+                                </button>
+                                <button className="text-neutral-500 hover:text-neutral-300 transition-colors p-1 rounded-md hover:bg-neutral-800">
+                                    <i className="bi bi-three-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </section>
+                    )}
                 </div>
             </div>
         </div>
