@@ -2,6 +2,7 @@
 
 import axios from "axios"
 import { useRef } from "react"
+import Link from "next/link"
 
 const Page = () => {
 
@@ -72,6 +73,12 @@ const handleSubmit = () => {
 </button>
                     </label>
                 </section>
+<p className="text-center text-sm text-neutral-400 mt-2">
+    Belum punya akun?{" "}
+    <Link href="/register" className="text-blue-400 hover:text-blue-300 transition-colors">
+        Daftar di sini
+    </Link>
+</p>
             </form>
         </main>
     )
