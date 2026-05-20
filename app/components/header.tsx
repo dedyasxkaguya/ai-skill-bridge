@@ -11,7 +11,7 @@ interface IHeader {
 const Header = ({ user, slug }: IHeader) => {
     const [data, setData] = useState<GroupChatData>()
     useEffect(() => {
-        const token = typeof window ? localStorage.getItem("token") : null
+const token = typeof window !== "undefined" ? localStorage.getItem("token") : null
         if (slug) {
             axios.get<IGroupChat>(`http://127.0.0.1:8000/api/groupchat/${slug}`, {
                 headers: {

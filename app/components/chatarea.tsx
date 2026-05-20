@@ -1,3 +1,4 @@
+
 import React from 'react';
 import MessageBubble from './messagebubble';
 import { Result } from './chatinput';
@@ -60,20 +61,19 @@ const ChatArea = ({ arrayResult, user, slug }: IChat) => {
                                                     </tr>
                                                 </thead>
                                                 <tbody className="divide-y divide-neutral-700/50">
-                                                    {a.data && a.data.map((a) => {
-                                                        return (
-                                                            <tr className="hover:bg-[#282a2c]/50 transition-colors" key={a.student_id}>
-                                                                <th className="px-4 py-3">{a.student_id}</th>
-                                                                <th className="px-4 py-3">{a.gender}</th>
-                                                                <th className="px-4 py-3">{a.age}</th>
-                                                                <th className="px-4 py-3">{a.study_hours}</th>
-                                                                <th className="px-4 py-3">{a.sleep_hours}</th>
-                                                                <th className="px-4 py-3">{a.final_score}</th>
-                                                                <th className="px-4 py-3">{a.passed ? "lulus" : "tidak lulus"}</th>
-                                                            </tr>
-                                                        )
-                                                    })
-                                                    }
+                                         {a.data && a.data.map((item, idx) => {
+    return (
+        <tr className="hover:bg-[#282a2c]/50 transition-colors" key={idx}>
+            <th className="px-4 py-3">{item.student_id}</th>
+            <th className="px-4 py-3">{item.gender}</th>
+            <th className="px-4 py-3">{item.age}</th>
+            <th className="px-4 py-3">{item.study_hours}</th>
+            <th className="px-4 py-3">{item.sleep_hours}</th>
+            <th className="px-4 py-3">{item.final_score}</th>
+            <th className="px-4 py-3">{item.passed ? "lulus" : "tidak lulus"}</th>
+        </tr>
+    )
+})}
                                                 </tbody>
                                             </table>
                                         </div>

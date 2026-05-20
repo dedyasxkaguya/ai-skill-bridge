@@ -36,20 +36,23 @@ export interface GroupChat {
 
 const Check = ({ func }: ICheck) => {
     useEffect(() => {
-        const token = localStorage.getItem("token")
-        if (token) {
-            axios.post<IData>("http://127.0.0.1:8000/api/check", {}, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    Accept: 'Application/json'
-                }
-            })
-                .then(data => {
-                    const fetched = data.data
-                    func(fetched.data)
-                })
-        }
-    }, [])
+    const token = localStorage.getItem("token")
+    console.log("TOKEN CHECK:", token) // ← cek ini di console
+    if (token) {
+        axios.post("http://127.0.0.1:8000/api/check", {}, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                Accept: "application/json",
+            }
+        })
+        .then(data => {
+            func(data.data.data)
+        })
+        .catch(err => {
+            console.log("CHECK ERROR:", err.response?.data)
+        })
+    }
+}, [])
     return (
         <></>
     )
