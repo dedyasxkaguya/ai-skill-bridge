@@ -26,7 +26,7 @@ const ChatArea = ({ arrayResult, user, slug }: IChat) => {
         <div className="flex-1 overflow-y-auto pt-8 flex flex-col items-center pb-[32dvh]">
             {arrayResult.length < 1 && (
                 <section className=' text-neutral-400 h-full flex items-center'>
-                    <p>Halo, selamat datang <span className=' text-neutral-200 font-semibold '>{user?.name}</span> {slug}</p>
+                    <p>Halo, selamat datang <span className=' text-neutral-200 font-semibold '>{user?.name}</span></p>
                 </section>
             )}
             {arrayResult.length >= 1 && arrayResult.map((a, index) => {

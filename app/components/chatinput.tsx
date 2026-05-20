@@ -39,7 +39,6 @@ const ChatInput = ({ user, slug }: IChatInput) => {
         ? localStorage.getItem("token")
         : null
 
-    console.log("TOKEN GET:", token)
 
     if (!token) return
 
@@ -63,17 +62,12 @@ const ChatInput = ({ user, slug }: IChatInput) => {
         console.log("GET CHAT ERROR:", err.response?.data || err.message)
       })
   }, [slug])
-
-  // ======================
-  // SUBMIT CHAT (FIXED)
-  // ======================
   const handleSubmit = async () => {
     const token =
       typeof window !== "undefined"
         ? localStorage.getItem("token")
         : null
 
-    console.log("TOKEN POST:", token)
 
     if (!slug || !query || !token) return
 
